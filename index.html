@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Чистка HTML кода от мусора</title>
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+  <div class="header clearfix">
+    <nav>
+      <ul class="nav nav-pills pull-right">
+        <li role="presentation" class="active"><a href="http://artlenk.ru/">Главная</a></li>
+        <li role="presentation"><a href="http://artlenk.ru/blog/">Блог</a></li>
+        <li role="presentation"><a href="http://artlenk.ru/contacts">Контакты</a></li>
+      </ul>
+    </nav>
+    <h3 class="text-muted">ArtLenk.ru</h3>
+  </div>
+  <div class="jumbotron text-center">
+    <h1>Чистка HTML кода от мусора</h1>
+    <p>Это очень просто, скопируйте ваш "загрязненный" код, и вставте в форму ниже, после нажатия на копку "почистить" всплывет окно с результатом.</p>
+    <p><a class="btn btn-lg btn-success" href="http://artlenk.ru/blog/js/services-html-clearing" role="button" target="_blank">Перейти на страницу</a></p>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <form class="passate-code">
+        <div class="form-group">
+          <label for="passate-code"></label>
+          <textarea class="form-control" id="passate-code" placeholder="Вставить код" rows="6"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="copy-code">Скопируйте код</label>
+          <textarea class="form-control" id="copy-code" rows="6"></textarea>
+        </div>
+        <div class="btn btn-success" id="submit" style="display: block; margin: 0 0 30px;">почистить</div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+	'use strict';
+
+	var passateCode, copyCode;
+
+	document.getElementById("submit").addEventListener("click", function() {
+	  passateCode = document.getElementById('passate-code').value;
+	  copyCode = passateCode.replace(/(\s*class=".*?"\s*)|(\s*data-bem=".*?"\s*)|(\s*role=".*?"\s*)|(\s*type=".*?"\s*)/gm, '');
+
+	  document.getElementById('copy-code').value = copyCode;
+	});
+
+/* Пример, того, что вставляем в форму
+
+<button class="button button_theme_normal button_size_s z-calculator__btn z-calculator__btn_size_m i-bem button_js_inited" data-bem="{&quot;button&quot;:{},&quot;z-calculator__btn&quot;:{&quot;action&quot;:&quot;ins&quot;,&quot;arg&quot;:&quot;9&quot;}}" role="button" type="button"><span class="button__text">Кнопка</span></button>
+
+
+*/
+</script>
+
+</body>
+</html>

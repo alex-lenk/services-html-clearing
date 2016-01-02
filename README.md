@@ -2,4 +2,4 @@
 
 Cleaning of HTML code from debris
 
-Original site https://github.com/alex-lenk/services-html-clearing
+Original site http://artlenk.ru/blog/js/services-html-clearing
